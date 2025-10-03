@@ -51,7 +51,7 @@ The system architecture consists of several integrated components:
 - **Basler industrial cameras** for high-quality image acquisition
 - **Real-time video processing** with optimized frame rates
 
-![Main Camera View](images/Hauptkamera.png) ![Container Monitoring](images/Kiste.png)
+![Real-time Detection Output](images/video%20output%20.png)
 
 ### 🧠 AI Processing Pipeline
 1. **YOLOv8 Object Detection** - Custom trained model for assembly components
@@ -66,11 +66,14 @@ The system architecture consists of several integrated components:
 - **Real-time object detection** with confidence scoring and bounding box visualization
 - **MediaPipe hand tracking** for precise human gesture recognition
 - **Multi-camera support** with synchronized video analysis
+- **Live assembly step tracking** with visual progress indicators
 
 ### ⏱️ Intelligent Cycle Time Monitoring
 - **Automated step detection** based on hand-object proximity algorithms
 - **Multiple completion conditions**: distance-based, timeout-based, ROI-based
 - **Real-time progress tracking** with visual feedback and status indicators
+- **Step timing display** showing current step duration and progress
+- **Container status monitoring** with automatic detection of empty/full states
 - **CSV export** of detailed timing data for comprehensive analysis
 
 ### 🎛️ Advanced Configuration System
@@ -95,10 +98,16 @@ The custom YOLOv8 model was trained on assembly components with the following pe
 
 ![PR Curve](images/PR_curve.png)
 
+### Dataset Distribution
+
+![Class Distribution](images/class%20distribution.png)
+
+The training dataset shows balanced distribution across different object classes, with Motor and Aluminiumblock being the most represented components.
+
 **Model Specifications:**
 - **Architecture**: YOLOv8n (nano) for optimal real-time performance
-- **Training Dataset**: Custom annotated assembly components
-- **Classes**: Motor, LModul, Uno, Erweiterungsboard, and other assembly parts
+- **Training Dataset**: Custom annotated assembly components (10,000+ instances)
+- **Classes**: Motor, Aluminiumblock, Kupferseule, LModul, Uno, and 15+ other assembly parts
 - **Model File**: `best_jasin.pt` (included in repository)
 
 **Performance Metrics:**
@@ -296,6 +305,8 @@ The system has been tested in real-world assembly scenarios with the following r
 │   ├── arbeitsstation.jpeg         # Workstation setup
 │   ├── flowchart.png              # System architecture
 │   ├── confusion_matrix.png       # Model performance
+│   ├── class distribution.png     # Training dataset distribution
+│   ├── video output .png          # Real-time detection output
 │   └── ...
 ├── best_jasin.pt                   # Trained YOLOv8 model
 ├── requirements.txt                # Python dependencies
