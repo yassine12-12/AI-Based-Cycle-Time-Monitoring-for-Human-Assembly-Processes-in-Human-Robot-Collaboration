@@ -116,7 +116,7 @@ The custom YOLOv8 model was trained on assembly components with the following pe
 
 ### Step 1: Clone Repository
 ```powershell
-git clone <repository-url>
+git clone https://github.com/yassine12-12/AI-Based-Cycle-Time-Monitoring-for-Human-Assembly-Processes-in-Human-Robot-Collaboration.git
 cd "AI-based cycle time monitoring for human assembly processes in human-robot collaboration"
 ```
 
@@ -133,9 +133,6 @@ pip install -r requirements.txt
 
 ### Step 4: Verify Installation
 ```powershell
-python -c "import cv2, ultralytics, mediapipe; print('All dependencies installed successfully!')"
-```
-
 ## 📚 Usage Guide
 
 ### 🎥 Real-Time Hand and Object Detection
@@ -190,7 +187,75 @@ python src/extract_frames.py
 - Output saved to `videos/frames/` in separate folders per video
 - Ideal for creating training datasets for Roboflow or similar annotation tools
 
-## 📈 Results
+## 🐛 Troubleshooting
+
+### Common Issues and Solutions
+
+**Camera Not Detected:**
+```powershell
+# Check available cameras
+python -c "import cv2; print([i for i in range(10) if cv2.VideoCapture(i).read()[0]])"
+```
+
+**Performance Issues:**
+- Reduce camera resolution in config
+- Lower YOLO confidence threshold
+- Close unnecessary applications
+- Ensure adequate RAM availability
+
+**Model Loading Errors:**
+```powershell
+# Verify model file integrity
+python -c "from ultralytics import YOLO; model = YOLO('best_jasin.pt'); print('Model loaded successfully')"
+```
+
+**Dependencies Missing:**
+```powershell
+# Reinstall requirements
+.venv\Scripts\activate
+pip install --upgrade -r requirements.txt
+```
+
+**Basler Camera Issues:**
+- Install Basler Pylon SDK
+- Check camera drivers
+- Verify USB 3.0 connection
+- Review camera permissions
+
+## 🤝 Contributing
+
+We welcome contributions to improve the system! Here's how you can help:
+
+### Development Setup
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes and test thoroughly
+4. Submit a pull request with detailed description
+
+### Areas for Contribution
+- **Algorithm improvements** for better detection accuracy
+- **Performance optimizations** for real-time processing
+- **Additional assembly step templates** for different scenarios
+- **Documentation enhancements** and tutorials
+- **Bug fixes** and stability improvements
+
+### Code Style
+- Follow PEP 8 guidelines for Python code
+- Add comprehensive docstrings for new functions
+- Include unit tests for new features
+- Update documentation for any API changes
+
+## � Contact
+
+For questions, suggestions, or collaboration opportunities:
+
+- **Project Repository**: [GitHub Repository](https://github.com/yassine12-12/AI-Based-Cycle-Time-Monitoring-for-Human-Assembly-Processes-in-Human-Robot-Collaboration)
+- **Research Group**: Technical University of Berlin - Manufacturing Technology
+- **Issues & Support**: Please use the GitHub Issues page for bug reports and feature requests
+
+---
+
+**Note**: This system is designed for research and educational purposes. For industrial deployment, additional safety measures and validation may be required.
 
 ### Experimental Validation
 
@@ -277,65 +342,6 @@ NMS_THRESHOLD = 0.45
 HAND_CONFIDENCE = 0.8
 HAND_TRACKING_CONFIDENCE = 0.5
 ```
-
-## 🐛 Troubleshooting
-
-### Common Issues and Solutions
-
-**Camera Not Detected:**
-```powershell
-# Check available cameras
-python -c "import cv2; print([i for i in range(10) if cv2.VideoCapture(i).read()[0]])"
-```
-
-**Performance Issues:**
-- Reduce camera resolution in config
-- Lower YOLO confidence threshold
-- Close unnecessary applications
-- Ensure adequate RAM availability
-
-**Model Loading Errors:**
-```powershell
-# Verify model file integrity
-python -c "from ultralytics import YOLO; model = YOLO('best_jasin.pt'); print('Model loaded successfully')"
-```
-
-**Dependencies Missing:**
-```powershell
-# Reinstall requirements
-.venv\Scripts\activate
-pip install --upgrade -r requirements.txt
-```
-
-**Basler Camera Issues:**
-- Install Basler Pylon SDK
-- Check camera drivers
-- Verify USB 3.0 connection
-- Review camera permissions
-
-## 🤝 Contributing
-
-We welcome contributions to improve the system! Here's how you can help:
-
-### Development Setup
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and test thoroughly
-4. Submit a pull request with detailed description
-
-### Areas for Contribution
-- **Algorithm improvements** for better detection accuracy
-- **Performance optimizations** for real-time processing
-- **Additional assembly step templates** for different scenarios
-- **Documentation enhancements** and tutorials
-- **Bug fixes** and stability improvements
-
-### Code Style
-- Follow PEP 8 guidelines for Python code
-- Add comprehensive docstrings for new functions
-- Include unit tests for new features
-- Update documentation for any API changes
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -346,17 +352,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Ultralytics** - YOLOv8 framework and documentation
 - **Google MediaPipe** - Hand tracking and pose estimation
 - **OpenCV Community** - Computer vision tools and libraries
-
-## 📞 Contact
-
-For questions, suggestions, or collaboration opportunities:
-
-- **Project Repository**: [GitHub Repository](https://github.com/your-username/cycle-time-monitoring)
-- **Research Group**: Technical University of Berlin - Manufacturing Technology
-- **Email**: [your-email@example.com]
-
----
-
-**Note**: This system is designed for research and educational purposes. For industrial deployment, additional safety measures and validation may be required.
 
 
