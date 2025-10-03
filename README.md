@@ -158,83 +158,6 @@ python modular/run_modular.py
 python modular/run_modular.py --camera 1
 ```
 
-**Using Batch File (Windows):**
-Simply double-click `run_yolo_mediapipe.bat` for quick startup.
-
-### 📹 Video Recording for Analysis
-
-**Record Raw Video:**
-```powershell
-.venv\Scripts\activate
-python src/raw_video_capture.py
-```
-- Press `q` to stop recording
-- Videos are automatically saved in `videos/` folder with timestamp
-- The `videos/` folder is git-ignored for privacy
-
-### 🔍 Assembly Analysis and Cycle Time Measurement
-
-**Analyze Pre-recorded Videos:**
-```powershell
-.venv\Scripts\activate
-python modular/components/main_app.py
-```
-
-**Video Control During Analysis:**
-- `q` - Quit analysis
-- `Space` - Pause/Resume
-- `a`/`d` - Frame backward/forward
-- `w`/`s` - Fast backward/forward navigation
-
-### 🖼️ Extract Training Frames
-
-**Extract frames from videos for annotation:**
-```powershell
-python src/extract_frames.py
-```
-- Extracts every 10th frame by default (configurable via `FRAME_SKIP`)
-- Output saved to `videos/frames/` in separate folders per video
-- Ideal for creating training datasets for Roboflow or similar annotation tools
-
-## 🐛 Troubleshooting
-
-### Common Issues and Solutions
-
-**Camera Not Detected:**
-```powershell
-# Check available cameras
-python -c "import cv2; print([i for i in range(10) if cv2.VideoCapture(i).read()[0]])"
-```
-
-**Performance Issues:**
-- Reduce camera resolution in config
-- Lower YOLO confidence threshold
-- Close unnecessary applications
-- Ensure adequate RAM availability
-
-**Model Loading Errors:**
-```powershell
-# Verify model file integrity
-python -c "from ultralytics import YOLO; model = YOLO('best_jasin.pt'); print('Model loaded successfully')"
-```
-
-**Dependencies Missing:**
-```powershell
-# Reinstall requirements
-.venv\Scripts\activate
-pip install --upgrade -r requirements.txt
-```
-
-**Basler Camera Issues:**
-- Install Basler Pylon SDK
-- Check camera drivers
-- Verify USB 3.0 connection
-- Review camera permissions
-
-## 🤝 Contributing
-
-We welcome contributions to improve the system! Here's how you can help:
-
 ### Development Setup
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature-name`
@@ -254,17 +177,7 @@ We welcome contributions to improve the system! Here's how you can help:
 - Include unit tests for new features
 - Update documentation for any API changes
 
-## � Contact
-
-For questions, suggestions, or collaboration opportunities:
-
-- **Project Repository**: [GitHub Repository](https://github.com/yassine12-12/AI-Based-Cycle-Time-Monitoring-for-Human-Assembly-Processes-in-Human-Robot-Collaboration)
-- **Research Group**: Technical University of Berlin - Manufacturing Technology
-- **Issues & Support**: Please use the GitHub Issues page for bug reports and feature requests
-
 ---
-
-**Note**: This system is designed for research and educational purposes. For industrial deployment, additional safety measures and validation may be required.
 
 ### Experimental Validation
 
@@ -284,34 +197,6 @@ The system has been tested in real-world assembly scenarios with the following r
 - Stable operation during extended testing periods
 - Minimal false positives through detection smoothing
 - Effective handling of occlusions and partial object visibility
-## 🗂️ Project Structure
-
-```
-├── modular/                          # Main application modules
-│   ├── components/                   # Core system components
-│   │   ├── config.py                # Configuration management
-│   │   ├── main_app.py              # Main application logic
-│   │   ├── step_logic.py            # Assembly step detection
-│   │   ├── timer_utils.py           # Cycle time measurement
-│   │   ├── vision_utils.py          # Computer vision utilities
-│   │   ├── vibration_utils.py       # Vibration analysis
-│   │   └── kiste_utils.py           # Container monitoring
-│   └── run_modular.py               # Application entry point
-├── yolov8 training/                 # Model training resources
-│   ├── train_yolo.ipynb            # Training notebook
-│   ├── results.csv                 # Training metrics
-│   └── runs/                       # Training outputs
-├── images/                         # Documentation images
-│   ├── arbeitsstation.jpeg         # Workstation setup
-│   ├── flowchart.png              # System architecture
-│   ├── confusion_matrix.png       # Model performance
-│   ├── class distribution.png     # Training dataset distribution
-│   ├── video output .png          # Real-time detection output
-│   └── ...
-├── best_jasin.pt                   # Trained YOLOv8 model
-├── requirements.txt                # Python dependencies
-└── README.md                       # Project documentation
-```
 
 ## ⚙️ Configuration
 
