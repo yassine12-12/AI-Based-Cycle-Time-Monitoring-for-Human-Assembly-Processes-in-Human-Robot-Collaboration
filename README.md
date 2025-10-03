@@ -8,17 +8,6 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## 📋 Table of Contents
-- [Project Overview](#-project-overview)
-- [System Architecture](#-system-architecture)
-- [Experimental Setup](#-experimental-setup)
-- [Key Features](#-key-features)
-- [Model Performance](#-model-performance)
-- [Installation & Setup](#-installation--setup)
-- [Usage Guide](#-usage-guide)
-- [Results](#-results)
-- [Contributing](#-contributing)
-
 ## 🎯 Project Overview
 
 ![Workstation Setup](images/arbeitsstation.jpeg)
