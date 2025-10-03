@@ -1,0 +1,25 @@
+Step Name,Duration (s)
+Robot positions Motor 1,31.3
+Human mounts Motor 1,45.1
+Robot positions Motor 2,15.3
+Human mounts Motor 2,41.5
+Robot positions Motor 3,15.8
+Human mounts Motor 3,66.8
+Robot positions Motor 4,14.1
+Human mounts Motor 4,53.9
+Robot gives LModul,17.5
+Human mounts LModul,58.2
+Robot gives Uno,23.3
+Human mounts Uno,62.4
+Human mounts Erweiterungsboard,17.8
+Robot gives Akku,14.6
+Human mounts Akku,46.7
+Human mounts Kupfersaeule,113.9
+Human mounts Sensorbaugruppe,46.5
+Human mounts teil B on A,88.6
+Human mounts rad,49.7
+
+Progress,19/19
+Total time (s),822.9
+Total time (min),13.7
+Average per step (s),43.3
